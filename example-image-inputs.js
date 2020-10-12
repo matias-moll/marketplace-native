@@ -15,8 +15,36 @@ import AppListImageInputs from './app/components/AppListImageInputs';
 
 export default function App() {
 
+  const requestPermission = async () => {
+    const resultPermissions = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    if(!resultPermissions.granted)
+      alert('You need to enable all the permissions needed for the app to work properly')
+  }
+
+  React.useEffect(() => {
+    requestPermission();
+  }, [])
+
+  const [imageUri, setImageUri] = React.useState()
+
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync(); 
+
+      if(!result.cancelled)
+        setImageUri(result.uri)
+
+    } catch (error) {
+      console.log('Error reading an image')
+    }
+  }
   return (
-    <ListingEditScreen />
+    <Screen>
+
+      <AppImageInput onChangeImageUri={uri => setImageUri(uri)} imageUri={imageUri} />
+      <AppListImageInputs />
+
+    </Screen>
   );
 }
 

@@ -12,6 +12,7 @@ const {errors, setFieldValue, touched, values } = useFormikContext()
     <>
       <AppPicker
         listItems={items}
+        onBlur= { () => setFieldTouched(name)}
         onSelectItem={(item) => {setFieldValue(name, item)}}
         placeholder={placeholder}
         selectedItem={values[name]}

@@ -15,8 +15,24 @@ import AppListImageInputs from './app/components/AppListImageInputs';
 
 export default function App() {
 
+  const [imageUris, setImageUris] = React.useState([])
+
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri])
+  }
+  const handleRemove = uri => {
+    setImageUris(imageUris.filter(imageUri => imageUri !== uri))
+  }
   return (
-    <ListingEditScreen />
+    <Screen>
+
+      <AppListImageInputs 
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
+      />
+
+    </Screen>
   );
 }
 
