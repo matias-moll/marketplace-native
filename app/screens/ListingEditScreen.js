@@ -37,6 +37,7 @@ export default function ListingEditScreen() {
           maxLenght={8}
           name='price'
           placeholder='Price'
+          width={120}
         />
         <AppFormPicker 
           items={categories}
