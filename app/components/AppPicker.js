@@ -16,9 +16,10 @@ export default function AppPicker({selectedItem, onSelectItem, placeholder, list
         onValueChange={(itemValue, itemIndex) =>
           onSelectItem(itemValue)
         }>
-        <Picker.Item value='' label={placeholder} />
+        <Picker.Item color={colors.medium} value='' label={placeholder} />
+    
         {listItems.map((item, index) => {
-          return <Picker.Item key={index} label={item.title.toString()} value={item.value}/>
+          return <Picker.Item key={item.title.toString()} label={item.title.toString()} value={item.value}/>
         })}
       </Picker>
       <MaterialCommunityIcons 
@@ -48,5 +49,5 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 17,
     right: 17,
-  }
+  },
 })

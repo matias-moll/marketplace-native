@@ -4,12 +4,14 @@ import Screen from './app/components/Screen'
 
 import colors from './app/config/colors'
 import AppPicker from './app/components/AppPicker';
+import LoginScreen from './app/screens/LoginScreen';
+import ListingEditScreen from './app/screens/ListingEditScreen'
 export default function App() {
 
   return (
-    <Screen>
-     
-    </Screen>
+    <ListingEditScreen>
+
+    </ListingEditScreen>
   );
 }
 
