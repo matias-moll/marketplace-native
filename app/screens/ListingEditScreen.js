@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import * as Yup  from 'yup'
-import * as Location from 'expo-location'
 
 import {AppForm, AppFormField, AppFormPicker, SubmitButton} from '../components/forms'
 import AppFormImagePicker from '../components/forms/AppFormImagePicker'
@@ -24,7 +23,7 @@ const categories = [
 
 export default function ListingEditScreen() {
   const location = useLocation()
-  
+
   return (
     <Screen style={styles.container}>
       <AppForm

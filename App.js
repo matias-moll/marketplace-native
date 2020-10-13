@@ -1,22 +1,20 @@
 import React from 'react';
 import { Button, StyleSheet, Image, Switch, Text, TextInput, View } from 'react-native';
 import Screen from './app/components/Screen'
-import * as ImagePicker from 'expo-image-picker'
-import * as Permissions from 'expo-permissions'
+import { createStackNavigator } from '@react-navigation/stack'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import {NavigationContainer, useNavigation} from '@react-navigation/native'
 
-import colors from './app/config/colors'
-import AppPicker from './app/components/AppPicker';
-import LoginScreen from './app/screens/LoginScreen';
-import ListingEditScreen from './app/screens/ListingEditScreen'
-import MessagesScreen from './app/screens/MessagesScreen'
-import AppText from './app/components/AppText';
-import AppImageInput from './app/components/AppImageInput';
-import AppListImageInputs from './app/components/AppListImageInputs';
+import AuthNavigator from './app/navigation/AuthNavigator';
+import NavigationTheme from './app/navigation/NavigationTheme';
+import AppNavigator from './app/navigation/AppNavigator';
 
 export default function App() {
 
   return (
-    <ListingEditScreen />
+    <NavigationContainer theme={NavigationTheme}>
+      <AppNavigator />
+    </NavigationContainer>
   );
 }
 
