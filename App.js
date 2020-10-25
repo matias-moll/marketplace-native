@@ -12,6 +12,7 @@ import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import AuthNavigator from './app/navigation/AuthNavigator';
 import NavigationTheme from './app/navigation/NavigationTheme';
 import AppNavigator from './app/navigation/AppNavigator';
+import OfflineNotice from './app/components/OfflineNotice';
 
 export default function App() {
   const netInfo = useNetInfo()
@@ -21,7 +22,6 @@ export default function App() {
       await AsyncStorage.setItem('person', JSON.stringify({id:1}))
       const value = await AsyncStorage.getItem('person')
       const person = JSON.parse(value)
-      console.log(person)
     } catch (error){
       console.log(error)
     }
@@ -31,17 +31,14 @@ export default function App() {
   demo()
 
   return (
-    <NavigationContainer theme={NavigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+      <NavigationContainer theme={NavigationTheme}>
+        <AppNavigator />
+      </NavigationContainer>
+      <OfflineNotice />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });
