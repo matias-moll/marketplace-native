@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import AppImageInput from './AppImageInput'
 
 export default function AppListImageInputs({ imageUris=[], onRemoveImage, onAddImage }) {

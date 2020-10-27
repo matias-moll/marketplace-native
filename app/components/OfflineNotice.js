@@ -1,9 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import {useNetInfo} from '@react-native-community/netinfo'
+import Constants from 'expo-constants'
+
 import colors from '../config/colors'
 import AppText from './AppText'
-import Constants from 'expo-constants'
-import {useNetInfo} from '@react-native-community/netinfo'
 
 export default function OfflineNotice() {
   const netInfo = useNetInfo()
@@ -33,5 +34,4 @@ const styles = StyleSheet.create({
     color: colors.white,
     width: 'auto'
   }
-
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Image, Text, View, TouchableWithoutFeedback, Alert } from 'react-native'
+import { StyleSheet, Image, View, TouchableWithoutFeedback, Alert } from 'react-native'
 import colors from '../config/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import * as ImagePicker from 'expo-image-picker'

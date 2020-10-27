@@ -1,9 +1,8 @@
 import React from 'react'
-import { StyleSheet, TextInput, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import colors from '../config/colors'
 import {Picker} from '@react-native-community/picker';
-import Icon from './Icon';
 
 export default function AppPicker({selectedItem, onSelectItem, placeholder, listItems, icon, width='100%', ...otherProps}) {
   return (
@@ -12,7 +11,7 @@ export default function AppPicker({selectedItem, onSelectItem, placeholder, list
       <Picker
         selectedValue={selectedItem}
         placeholder='Test'
-        style={{height: 25, width: '100%', backgroundColor:colors.light, borderRadius: 25,}}
+        style={styles.picker}
         onValueChange={(itemValue, itemIndex) =>
           onSelectItem(itemValue)
         }>
@@ -49,4 +48,7 @@ const styles = StyleSheet.create({
     bottom: 17,
     right: 17,
   },
+  picker: {
+    height: 25, width: '100%', backgroundColor:colors.light, borderRadius: 25,
+  }
 })
