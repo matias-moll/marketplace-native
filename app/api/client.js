@@ -1,9 +1,16 @@
 import {create} from 'apisauce'
 import cache from '../utility/cache'
+import authStorage from '../auth/storage'
 
 const apiClient = create({
   baseURL: 'http://192.168.222.123:9000/api'
 })
+
+apiClient.addAsyncRequestTransform(async (request) => {
+  const authToken = await authStorage.getToken();
+  if(!authToken) return;
+  request.headers['x-auth-token'] = authToken;
+});
 
 // Redefine the get method and call the previous evrsion + extra behaviour (like a decorator)
 const get = apiClient.get
